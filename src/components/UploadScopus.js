@@ -1,9 +1,12 @@
 import React, {Component} from 'react'
 import CSVReader from 'react-csv-reader'
+import SubmitFile from './SubmitFile'
 
 const axios = require('axios');
 
-class CsvParser extends Component {
+const parseOptions = { header: true }
+
+class UploadScopus extends Component {
     constructor(props) {
         super(props);
         this.state = undefined;
@@ -18,15 +21,19 @@ class CsvParser extends Component {
             data: this.state
         });
     }
-
+    
     render() {
         return (
-            <div class="block1">
+            <div className="block1">
                 <p>Upload CSV file Scopus DB:</p>
-                <CSVReader onFileLoaded={data => this.setState(data)} />
+                <CSVReader 
+                    onFileLoaded={data => this.setState(data)} 
+                    parserOptions={parseOptions} 
+                />
+                <SubmitFile json={this.postCsv} test={this.state} />
             </div>
         )
     }
 }
 
-export default CsvParser
+export default UploadScopus

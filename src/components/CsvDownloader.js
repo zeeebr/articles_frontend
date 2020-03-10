@@ -25,7 +25,7 @@ class CsvDownloader extends Component {
         return (
             <div>
                 <p>{this.state}</p>
-                {/* <CSVLink data={this.state}>Download me</CSVLink> */}
+                <CSVLink data={this.state}>Download me</CSVLink>
             </div>
             
         )

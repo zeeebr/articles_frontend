@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Info from './components/Info'
 import FindOne from './components/FindOne'
 import Result from './components/Result'
-import CsvParser from './components/CsvParser'
-import CsvDownloader from './components/CsvDownloader'
+import UploadScopus from './components/UploadScopus'
+import UploadWos from './components/UploadWos'
+//import CsvDownloader from './components/CsvDownloader'
 
 const axios = require('axios');
 
@@ -65,8 +66,8 @@ class App extends Component {
           year={this.state.year}
           frezee={this.state.frezee}
         />
-        <CsvParser />
-        <CsvDownloader />
+        <UploadScopus />
+        <UploadWos />
       </div>
     )
   } 
