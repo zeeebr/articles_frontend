@@ -20,11 +20,12 @@ class UploadScopus extends Component {
             mode: 'no-cors',
             data: this.state
         });
+        //console.log(this.state)
     }
     
     render() {
         return (
-            <div className="block1">
+            <div className="upload-block-scopus">
                 <p>Upload CSV file Scopus DB:</p>
                 <CSVReader 
                     onFileLoaded={data => this.setState(data)} 

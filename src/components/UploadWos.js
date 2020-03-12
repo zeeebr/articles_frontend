@@ -20,11 +20,12 @@ class UploadWos extends Component {
             mode: 'no-cors',
             data: this.state
         });
+        console.log(this.state)
     }
     
     render() {
         return (
-            <div className="block1">
+            <div className="upload-block-wos">
                 <p>Upload CSV file Web of Science DB:</p>
                 <CSVReader 
                     onFileLoaded={data => this.setState(data)} 
