@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import CSVReader from 'react-csv-reader'
 import SubmitFile from './SubmitFile'
-import logo from '../img/wos.png'
+import logo from '../img/id.png'
 
 const axios = require('axios');
 
 const parseOptions = { header: true }
 
-class UploadWos extends Component {
+class UploadScopus extends Component {
     constructor(props) {
         super(props);
         this.state = undefined;
@@ -17,11 +17,11 @@ class UploadWos extends Component {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: `http://localhost:4000/wos/parser`,
+            url: `http://localhost:4000/scopus/parser`,
             mode: 'no-cors',
             data: this.state
         });
-        console.log(this.state)
+        //console.log(this.state)
     }
     
     render() {
@@ -29,7 +29,7 @@ class UploadWos extends Component {
             <div className="upload-block">
                 <table className="upload-table">
                     <tr>
-                        <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file Web of Science DB</th>
+                        <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file of Identificators</th>
                     </tr>
                     <tr>
                         <td>
@@ -46,4 +46,4 @@ class UploadWos extends Component {
     }
 }
 
-export default UploadWos
+export default UploadScopus

@@ -4,7 +4,9 @@ import Count from './components/Count'
 import FindOne from './components/FindOne'
 import UploadScopus from './components/UploadScopus'
 import UploadWos from './components/UploadWos'
-//import CsvDownloader from './components/CsvDownloader'
+import UploadAuthors from './components/UploadAuthors'
+import UploadEids from './components/UploadEids'
+import ExportScopus from './components/ExportScopus'
 
 class App extends Component {
     constructor(props) {
@@ -13,13 +15,22 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
-                <Count />
-                <UploadScopus />
-                <UploadWos />
-                <UploadWos />
-                <UploadWos />
-                <FindOne />
+            <div className="main">
+              <table className="main-table">
+                <tr>
+                  <td>
+                    <Count />
+                    <UploadScopus />
+                    <UploadWos />
+                    <UploadAuthors />
+                    <UploadEids />
+                    <ExportScopus />
+                  </td>
+                  <td>
+                    <FindOne />
+                  </td>
+                </tr>
+              </table>
             </div>
         )
     } 

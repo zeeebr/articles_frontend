@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CSVReader from 'react-csv-reader'
 import SubmitFile from './SubmitFile'
+import logo from '../img/scopus.png'
 
 const axios = require('axios');
 
@@ -25,13 +26,21 @@ class UploadScopus extends Component {
     
     render() {
         return (
-            <div className="upload-block-scopus">
-                <p>Upload CSV file Scopus DB:</p>
-                <CSVReader 
-                    onFileLoaded={data => this.setState(data)} 
-                    parserOptions={parseOptions} 
-                />
-                <SubmitFile json={this.postCsv} test={this.state} />
+            <div className="upload-block">
+                <table className="upload-table">
+                    <tr>
+                        <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file Scopus DB</th>
+                    </tr>
+                    <tr>
+                        <td>
+                        <CSVReader 
+                            onFileLoaded={data => this.setState(data)} 
+                            parserOptions={parseOptions} 
+                        />
+                        <SubmitFile json={this.postCsv} test={this.state} />
+                        </td>
+                    </tr>
+                </table>
             </div>
         )
     }

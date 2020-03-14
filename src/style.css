@@ -1,44 +1,62 @@
+.main-table {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.main-table td {
+    width: 50%;
+    height: 100%;
+    vertical-align: top;
+}
 .counter-table {
-    width: 48.5%; 
-    margin-left: 1%;
-    margin-top: 1%;
+    width: 96%; 
+    margin-left: 2%;
+    margin-top: 2%;
+    table-layout: fixed;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .counter-table th {
-    border: solid 1px black;
-    background: #E4DFEC;
+    background-color: rgb(14, 150, 137);
+    color: white;
 }
 .counter-table td {
-    border: solid 1px black;
+    border: solid 1px rgb(224, 224, 224);
 }
-.upload-block-scopus { 
-    width: 23.75%; 
-    background: linear-gradient(45deg, rgb(235, 158, 108), #E87124);
-    margin-left: 1%;
-    margin-top: 10px;
-    padding: 5px;
-    padding-right: 20px; 
-    border: solid 1px black; 
-    float: left;
-    border-radius: 10px 0px 10px 0px;
+.upload-table {
+    width: 100%;
+    height: 100%;
+    border: 0px;
 }
-.upload-block-wos { 
-    width: 23.75%; 
-    background: #4C749A;
-    margin-left: 1%;
-    margin-top: 10px;
-    padding: 5px;
-    padding-right: 20px; 
-    border: solid 1px black; 
+.upload-table th {
+    border-bottom: 1px;
+    background-color: rgb(14, 150, 137);
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+}
+.upload-table td {
+    border: none;
+    padding: 10px;
+}
+.upload-block { 
+    width: 47%; 
+    height: 20%;
+    /* background: linear-gradient(45deg, rgb(235, 158, 108), #E87124); */
+    margin-left: 2%;
+    margin-top: 2%;
+    padding: 0px;
     float: left;
-    border-radius: 10px 0px 10px 0px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 .find-one {
-    width: 48.5%;
+    width: 100%;
     margin-left: 1%;
     margin-top: 1%;
 }
 .textarea {
-    width: 100%;
+    width: 98%;
     height: 500px;
+    margin-left: 0%;
     margin-top: 1%;
+    resize: none;
 }

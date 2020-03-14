@@ -13,7 +13,6 @@ class Count extends Component {
             mode: 'no-cors'
         })
         this.setState(response)
-        //console.log(this.state)
     }
 
     componentWillMount() {
@@ -27,7 +26,7 @@ class Count extends Component {
                     <table className="counter-table">
                         <tbody>
                             <tr align="center">
-                                <th>ТИУ</th>
+                                <th>University</th>
                                 <th>2015</th>
                                 <th>2016</th>
                                 <th>2017</th>

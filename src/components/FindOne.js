@@ -12,19 +12,19 @@ class FindOne extends Component {
     getOnePaper = async (e) => {
         e.preventDefault();
         const eid = e.target.elements.eid.value;
-        const response = await axios.get(`http://localhost:4000/correction/${eid}`, {
+        const response = await axios.get(`http://localhost:4000/correction/findOneScopus/${eid}`, {
             mode: 'no-cors'
         });
         
         console.log(response.data);
     
-        this.setState(response.data)
+        this.setState(response.data[0])
     }
 
     render() {
         return(
             <div className="find-one">
-                <h2>Запрос FindOne</h2>
+                <h4>Запрос FindOne</h4>
                 <form onSubmit={this.getOnePaper}>
                     <input type="text" name="eid" placeholder="Идентификатор"></input>
                     <button>Загрузить</button>
