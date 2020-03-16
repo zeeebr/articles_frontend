@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Result from './Result'
 
 const axios = require('axios');
+const apiUrl = process.env.REACT_APP_API_URL;
 
 class FindOne extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class FindOne extends Component {
     getOnePaper = async (e) => {
         e.preventDefault();
         const eid = e.target.elements.eid.value;
-        const response = await axios.get(`http://localhost:4000/correction/findOneScopus/${eid}`, {
+        const response = await axios.get(`${apiUrl}/correction/findOneScopus/${eid}`, {
             mode: 'no-cors'
         });
         

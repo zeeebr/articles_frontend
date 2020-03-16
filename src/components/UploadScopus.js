@@ -4,6 +4,7 @@ import SubmitFile from './SubmitFile'
 import logo from '../img/scopus.png'
 
 const axios = require('axios');
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const parseOptions = { header: true }
 
@@ -17,7 +18,7 @@ class UploadScopus extends Component {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: `http://localhost:4000/scopus/parser`,
+            url: `${apiUrl}/scopus/parser`,
             mode: 'no-cors',
             data: this.state
         });

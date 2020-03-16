@@ -17,7 +17,7 @@ class UploadWos extends Component {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: `http://localhost:4000/wos/parser`,
+            url: `${process.env.API_URL}/wos/parser`,
             mode: 'no-cors',
             data: this.state
         });

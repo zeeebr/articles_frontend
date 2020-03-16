@@ -3,6 +3,7 @@ import ExportFile from './ExportFile'
 import logo from '../img/scopus.png'
 
 const axios = require('axios');
+const apiUrl = process.env.REACT_APP_API_URL;
 
 class ExportScopus extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class ExportScopus extends Component {
 
     getJson = async (e) => {
         e.preventDefault();
-        let response = await axios.get(`http://localhost:4000/scopus/export`, {
+        let response = await axios.get(`${apiUrl}/scopus/export`, {
             mode: 'no-cors'
         });
         console.log(response)

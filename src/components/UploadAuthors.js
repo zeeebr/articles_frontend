@@ -17,7 +17,7 @@ class UploadScopus extends Component {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: `http://localhost:4000/scopus/parser`,
+            url: `${process.env.API_URL}/scopus/parser`,
             mode: 'no-cors',
             data: this.state
         });

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 const axios = require('axios');
+const apiUrl = process.env.REACT_APP_API_URL;
 
 class Count extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Count extends Component {
     }
 
     counter = async () => {
-        const response = await axios.get(`http://localhost:4000/count`, {
+        const response = await axios.get(`${apiUrl}/count`, {
             mode: 'no-cors'
         })
         this.setState(response)
