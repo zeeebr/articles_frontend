@@ -22,25 +22,26 @@ class UploadScopus extends Component {
             mode: 'no-cors',
             data: this.state
         });
-        //console.log(this.state)
     }
     
     render() {
         return (
             <div className="upload-block">
                 <table className="upload-table">
-                    <tr>
-                        <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file Scopus DB</th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <CSVReader 
-                            onFileLoaded={data => this.setState(data)} 
-                            parserOptions={parseOptions} 
-                        />
-                        <SubmitFile json={this.postCsv} test={this.state} />
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file Scopus DB</th>
+                        </tr>
+                        <tr>
+                            <td>
+                            <CSVReader 
+                                onFileLoaded={data => this.setState(data)} 
+                                parserOptions={parseOptions} 
+                            />
+                            <SubmitFile json={this.postCsv} test={this.state} />
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         )

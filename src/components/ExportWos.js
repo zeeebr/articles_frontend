@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import ExportFile from './ExportFile'
-import logo from '../img/scopus.png'
+import logo from '../img/wos.png'
 import jsonToCsv from "./JsonToCsv";
 
 const axios = require('axios');
 const apiUrl = process.env.REACT_APP_API_URL;
 
-class ExportScopus extends Component {
+class ExportWos extends Component {
     constructor(props) {
         super(props);
         this.state = undefined;
@@ -14,7 +14,7 @@ class ExportScopus extends Component {
 
     getJson = async (e) => {
         e.preventDefault();
-        let response = await axios.get(`${apiUrl}/scopus/export`, {
+        let response = await axios.get(`${apiUrl}/wos/export`, {
             mode: 'no-cors'
         });
         
@@ -29,7 +29,7 @@ class ExportScopus extends Component {
                 <table className="upload-table">
                     <tbody>
                         <tr>
-                            <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Export CSV file Scopus DB</th>
+                            <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Export CSV file Web of Science DB</th>
                         </tr>
                         <tr>
                             <td>
@@ -46,4 +46,4 @@ class ExportScopus extends Component {
     }
 }
 
-export default ExportScopus
+export default ExportWos

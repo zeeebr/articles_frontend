@@ -4,8 +4,14 @@ import SubmitFile from './SubmitFile'
 import logo from '../img/wos.png'
 
 const axios = require('axios');
+const apiUrl = process.env.REACT_APP_API_URL;
 
-const parseOptions = { header: true }
+const parseOptions = { 
+    header: true,
+    quoteChar: "",
+    delimiter: "\t",
+    skipEmptyLines: true
+}
 
 class UploadWos extends Component {
     constructor(props) {
@@ -17,7 +23,7 @@ class UploadWos extends Component {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: `${process.env.API_URL}/wos/parser`,
+            url: `${apiUrl}/wos/parser`,
             mode: 'no-cors',
             data: this.state
         });
@@ -28,18 +34,20 @@ class UploadWos extends Component {
         return (
             <div className="upload-block">
                 <table className="upload-table">
-                    <tr>
-                        <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file Web of Science DB</th>
-                    </tr>
-                    <tr>
-                        <td>
-                        <CSVReader 
-                            onFileLoaded={data => this.setState(data)} 
-                            parserOptions={parseOptions} 
-                        />
-                        <SubmitFile json={this.postCsv} test={this.state} />
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th><img src={logo} alt={"logo"}></img>&nbsp;&nbsp;Upload CSV file Web of Science DB</th>
+                        </tr>
+                        <tr>
+                            <td>
+                            <CSVReader 
+                                onFileLoaded={data => this.setState(data)} 
+                                parserOptions={parseOptions} 
+                            />
+                            <SubmitFile json={this.postCsv} test={this.state} />
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         )
