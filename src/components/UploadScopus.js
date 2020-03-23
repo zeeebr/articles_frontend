@@ -6,7 +6,10 @@ import logo from '../img/scopus.png'
 const axios = require('axios');
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const parseOptions = { header: true }
+const parseOptions = { 
+    header: true,
+    skipEmptyLines: true 
+}
 
 class UploadScopus extends Component {
     constructor(props) {
@@ -22,6 +25,7 @@ class UploadScopus extends Component {
             mode: 'no-cors',
             data: this.state
         });
+        //console.log(this.state)
     }
     
     render() {
