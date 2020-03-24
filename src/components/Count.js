@@ -17,7 +17,12 @@ class Count extends Component {
     }
 
     componentWillMount() {
-        this.counter()
+        this.counter();
+        this.timer = setInterval(() => this.counter(), 1000)
+    }
+
+    componentWillUnmount() {
+        this.timer = null;
     }
 
     render() {

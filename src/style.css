@@ -55,7 +55,7 @@
 }
 .textarea {
     width: 98%;
-    height: 500px;
+    height: 300px;
     margin-left: 0%;
     margin-top: 1%;
     resize: none;
@@ -66,4 +66,10 @@
     margin-left: 0%;
     margin-top: 2%;
     resize: none;
+}
+.correction-table {
+    width: 98%; 
+    margin-left: 0%;
+    margin-top: 2%;
+    table-layout: fixed;
 }
