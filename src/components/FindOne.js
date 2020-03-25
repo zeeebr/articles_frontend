@@ -12,12 +12,13 @@ class FindOne extends Component {
             baseIsScopus: true
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleCheck = this.handleCheck.bind(this);
+        this.handleCheck1 = this.handleCheck1.bind(this);
+        this.handleCheck2 = this.handleCheck2.bind(this);
     }
 
     getScopusPaper = async (e) => {
         e.preventDefault();
-        const eid = e.target.elements.eid.value;
+        const eid = '2-s2.0-'+e.target.elements.eid.value;
         const response = await axios.get(`${apiUrl}/correction/scopus/${eid}`, {
             mode: 'no-cors'
         });
@@ -29,7 +30,7 @@ class FindOne extends Component {
 
     getWosPaper = async (e) => {
         e.preventDefault();
-        const eid = e.target.elements.eid.value;
+        const eid = 'WOS:'+e.target.elements.eid.value;
         const response = await axios.get(`${apiUrl}/correction/wos/${eid}`, {
             mode: 'no-cors'
         });
@@ -45,7 +46,15 @@ class FindOne extends Component {
         //console.log(this.state);
     }
 
-    handleCheck(e){
+    handleCheck1(e){
+        this.setState(prevState => {
+            let paper = Object.assign({}, prevState.paper);  
+            paper.frezee = !paper.frezee;                                     
+            return { paper };                                 
+        })
+    }
+
+    handleCheck2(e){
         this.setState({
             baseIsScopus: !this.state.baseIsScopus
         });
@@ -82,14 +91,20 @@ class FindOne extends Component {
                         <tr>
                             <td>
                                 <form onSubmit={this.state.baseIsScopus ? this.getScopusPaper : this.getWosPaper}>
-                                    <input type="text" name="eid" placeholder={this.state.baseIsScopus ? 'id (2-s2.0-8...)' : 'id (WOS:000...)'} />
+                                    <input type="text" name="eid" placeholder={this.state.baseIsScopus ? 'id (8508...)' : 'id (0005...)'} />
                                     <button>Загрузить</button>
                                 </form>
                             </td>
+                            <td>
+                                <div className="custom-control custom-switch">
+                                    <input type="checkbox" className="custom-control-input" id="customSwitch1" onChange={this.handleCheck1} />
+                                    <label className="custom-control-label" htmlFor="customSwitch1">freez-z-zer</label>
+                                </div>
+                            </td>
                             <td align="right"> 
                                 <div className="custom-control custom-switch">
-                                    <input type="checkbox" className="custom-control-input" id="customSwitch1" onChange={this.handleCheck} />
-                                    <label className="custom-control-label" htmlFor="customSwitch1">Switch to WoS</label>
+                                    <input type="checkbox" className="custom-control-input" id="customSwitch2" onChange={this.handleCheck2} />
+                                    <label className="custom-control-label" htmlFor="customSwitch2">Switch to WoS</label>
                                 </div>     
                             </td>
                         </tr>

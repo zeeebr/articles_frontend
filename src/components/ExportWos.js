@@ -18,9 +18,12 @@ class ExportWos extends Component {
             mode: 'no-cors'
         });
         
-        let csvData = jsonToCsv(response.data)
-        //console.log(csvData)
-        this.setState({csv: csvData})
+        if(response.data.length === 0) {
+            this.setState({csv: 'no data for export :('})
+        } else {
+            let csvData = jsonToCsv(response.data)
+            this.setState({csv: csvData})
+        }
     }
     
     render() {
