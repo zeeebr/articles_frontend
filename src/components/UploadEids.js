@@ -4,6 +4,7 @@ import SubmitFile from './SubmitFile'
 import logo from '../img/id.png'
 
 const axios = require('axios');
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const parseOptions = { header: true }
 
@@ -17,9 +18,19 @@ class UploadScopus extends Component {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: `${process.env.API_URL}/scopus/parser`,
+            url: `${apiUrl}/scopus/parser`,
             mode: 'no-cors',
             data: this.state
+        });
+        //console.log(this.state)
+    }
+
+    postEids = async (e) => {
+        e.preventDefault();
+        await axios({
+            method: 'post',
+            url: `${apiUrl}/eids`,
+            mode: 'no-cors'
         });
         //console.log(this.state)
     }
@@ -39,6 +50,10 @@ class UploadScopus extends Component {
                                 parserOptions={parseOptions} 
                             />
                             <SubmitFile json={this.postCsv} test={this.state} />
+                            <br></br>
+                            <form onSubmit={this.postEids}>
+                                <button>Write new identificators!</button>
+                            </form>
                             </td>
                         </tr>
                     </tbody>

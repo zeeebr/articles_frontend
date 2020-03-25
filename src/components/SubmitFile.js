@@ -6,7 +6,6 @@ class SubmitFile extends Component {
             <div>
                 { this.props.test &&
                     <div>
-                        <br></br>
                         <form onSubmit={this.props.json}>
                             <button>Submit!</button>
                         </form>
