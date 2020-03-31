@@ -25,10 +25,10 @@ class UploadScopus extends Component {
         //console.log(this.state)
     }
 
-    postEids = async (e) => {
+    updateEids = async (e) => {
         e.preventDefault();
         await axios({
-            method: 'post',
+            method: 'put',
             url: `${apiUrl}/eids`,
             mode: 'no-cors'
         });
@@ -51,7 +51,7 @@ class UploadScopus extends Component {
                             />
                             <SubmitFile json={this.postCsv} test={this.state} />
                             <br></br>
-                            <form onSubmit={this.postEids}>
+                            <form onSubmit={this.updateEids}>
                                 <button>Write new identificators!</button>
                             </form>
                             </td>

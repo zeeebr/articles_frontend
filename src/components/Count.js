@@ -27,11 +27,11 @@ class Count extends Component {
 
     render() {
         return(
-            <div>
+            <div className="counter-block">
                 { this.state &&
                     <table className="counter-table">
                         <tbody>
-                            <tr align="left">
+                            <tr>
                                 <th>University</th>
                                 <th>2015</th>
                                 <th>2016</th>
@@ -41,7 +41,7 @@ class Count extends Component {
                                 <th>2020</th>
                                 <th>ALL</th>
                             </tr>
-                            <tr align="left">
+                            <tr>
                                 <td>WoS</td>
                                 <td>{this.state.data.wos['2015']}<sup>&nbsp;{this.state.data.wos['2015+'] > 0 ? '+'+this.state.data.wos['2015+'] : ''}</sup></td>
                                 <td>{this.state.data.wos['2016']}<sup>&nbsp;{this.state.data.wos['2016+'] > 0 ? '+'+this.state.data.wos['2016+'] : ''}</sup></td>
@@ -51,7 +51,7 @@ class Count extends Component {
                                 <td>{this.state.data.wos['2020']}<sup>&nbsp;{this.state.data.wos['2020+'] > 0 ? '+'+this.state.data.wos['2020+'] : ''}</sup></td>
                                 <td>{this.state.data.wos['all']}</td>
                             </tr>
-                            <tr align="left">
+                            <tr>
                                 <td>Scopus</td>
                                 <td>{this.state.data.scopus['2015']}<sup>&nbsp;{this.state.data.scopus['2015+'] > 0 ? '+'+this.state.data.scopus['2015+'] : ''}</sup></td>
                                 <td>{this.state.data.scopus['2016']}<sup>&nbsp;{this.state.data.scopus['2016+'] > 0 ? '+'+this.state.data.scopus['2016+'] : ''}</sup></td>
@@ -61,7 +61,7 @@ class Count extends Component {
                                 <td>{this.state.data.scopus['2020']}<sup>&nbsp;{this.state.data.scopus['2020+'] > 0 ? '+'+this.state.data.scopus['2020+'] : ''}</sup></td>
                                 <td>{this.state.data.scopus['all']}</td>
                             </tr>
-                            <tr align="left">
+                            <tr>
                                 <td>All in year</td>
                                 <td>{this.state.data.all['2015']}</td>
                                 <td>{this.state.data.all['2016']}</td>
