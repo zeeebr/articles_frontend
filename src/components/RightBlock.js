@@ -21,13 +21,13 @@ class RightBlock extends Component {
     getScopusPaper = async (e) => {
         e.preventDefault();
         const eid = '2-s2.0-'+e.target.elements.eid.value;
-        const response = await axios.get(`${apiUrl}/correction/scopus/${eid}`, {
+        const response = await axios.get(`${apiUrl}/scopus/paper/${eid}`, {
             mode: 'no-cors'
         });
     
         this.setState({paper: response.data[0]})
 
-        const response2 = await axios.get(`${apiUrl}/correction/scopus/connection/${eid}`, {
+        const response2 = await axios.get(`${apiUrl}/scopus/connection/${eid}`, {
             mode: 'no-cors'
         });
 
@@ -37,13 +37,13 @@ class RightBlock extends Component {
     getWosPaper = async (e) => {
         e.preventDefault();
         const eid = 'WOS:'+e.target.elements.eid.value;
-        const response = await axios.get(`${apiUrl}/correction/wos/${eid}`, {
+        const response = await axios.get(`${apiUrl}/wos/paper/${eid}`, {
             mode: 'no-cors'
         });
     
         this.setState({paper: response.data[0]})
 
-        const response2 = await axios.get(`${apiUrl}/correction/wos/connection/${eid}`, {
+        const response2 = await axios.get(`${apiUrl}/wos/connection/${eid}`, {
             mode: 'no-cors'
         });
 
@@ -53,7 +53,6 @@ class RightBlock extends Component {
     handleChange(e) {
         let data = JSON.parse(e.target.value)
         this.setState({ paper: data });
-        //console.log(this.state);
     }
 
     handleCheck1(e){
@@ -75,7 +74,7 @@ class RightBlock extends Component {
         console.log(this.state.paper);
         await axios({
             method: 'put',
-            url: `${apiUrl}/correction/scopus/`,
+            url: `${apiUrl}/scopus/correction`,
             mode: 'no-cors',
             data: this.state.paper
         });
@@ -86,7 +85,7 @@ class RightBlock extends Component {
         console.log(this.state.paper);
         await axios({
             method: 'put',
-            url: `${apiUrl}/correction/wos/`,
+            url: `${apiUrl}/wos/correction`,
             mode: 'no-cors',
             data: this.state.paper
         });
@@ -98,7 +97,7 @@ class RightBlock extends Component {
         console.log(this.state.paper);
         await axios({
             method: 'delete',
-            url: `${apiUrl}/delete/scopus/${eid}`,
+            url: `${apiUrl}/scopus/delete/${eid}`,
             mode: 'no-cors',
             data: this.state.paper
         });
@@ -110,7 +109,7 @@ class RightBlock extends Component {
         console.log(this.state.paper);
         await axios({
             method: 'delete',
-            url: `${apiUrl}/delete/wos/${eid}`,
+            url: `${apiUrl}/wos/delete/${eid}`,
             mode: 'no-cors',
             data: this.state.paper
         });
