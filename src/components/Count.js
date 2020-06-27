@@ -69,7 +69,7 @@ class Count extends Component {
                                 <td>{this.state.data.all['2018']}</td>
                                 <td>{this.state.data.all['2019']}</td>
                                 <td>{this.state.data.all['2020']}</td>
-                                <td><b>{this.state.data.all['all']}</b></td>
+                                <td><b>{this.state.data.all['all']}</b><sup>&nbsp;{this.state.data.all['all+'] > 0 ? '+'+this.state.data.all['all+'] : ''}</sup></td>
                             </tr>
                         </tbody>
                     </table>
