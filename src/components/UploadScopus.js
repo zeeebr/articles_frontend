@@ -19,7 +19,7 @@ function UploadScopus() {
         const interval = setInterval(() => {
             getStatus();
             //console.log(status)
-        }, 200);
+        }, 500);
         
         return () => clearInterval(interval);       
     });
